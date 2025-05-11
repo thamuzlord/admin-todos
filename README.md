@@ -6,3 +6,10 @@ Pasos para levantar la app en desarrollo
 ```
 docker compose up -d
 ```
+
+
+* Prisma commands
+
+npx prisma init
+npx prisma migrate dev
+npx prisma generate
