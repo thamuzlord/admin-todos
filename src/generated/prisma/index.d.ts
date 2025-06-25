@@ -21,7 +21,7 @@ export type Todo = $Result.DefaultSelection<Prisma.$TodoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
- *
+ * 
  * Type-safe database client for TypeScript & Node.js
  * @example
  * ```
@@ -30,7 +30,7 @@ export type Todo = $Result.DefaultSelection<Prisma.$TodoPayload>
  * const todos = await prisma.todo.findMany()
  * ```
  *
- *
+ * 
  * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
  */
 export class PrismaClient<
@@ -42,7 +42,7 @@ export class PrismaClient<
 
     /**
    * ##  Prisma Client ʲˢ
-   *
+   * 
    * Type-safe database client for TypeScript & Node.js
    * @example
    * ```
@@ -51,12 +51,12 @@ export class PrismaClient<
    * const todos = await prisma.todo.findMany()
    * ```
    *
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
    */
 
   constructor(optionsArg ?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>);
-  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
+  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): void;
 
   /**
    * Connect with the database
@@ -81,7 +81,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
@@ -93,7 +93,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<number>;
@@ -104,7 +104,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
@@ -116,7 +116,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
@@ -140,9 +140,7 @@ export class PrismaClient<
   $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => $Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<R>
 
 
-  $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<ClientOptions>, ExtArgs, $Utils.Call<Prisma.TypeMapCb<ClientOptions>, {
-    extArgs: ExtArgs
-  }>>
+  $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
    * `prisma.todo`: Exposes CRUD operations for the **Todo** model.
@@ -152,7 +150,7 @@ export class PrismaClient<
     * const todos = await prisma.todo.findMany()
     * ```
     */
-  get todo(): Prisma.TodoDelegate<ExtArgs, ClientOptions>;
+  get todo(): Prisma.TodoDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -173,6 +171,7 @@ export namespace Prisma {
   export import PrismaClientRustPanicError = runtime.PrismaClientRustPanicError
   export import PrismaClientInitializationError = runtime.PrismaClientInitializationError
   export import PrismaClientValidationError = runtime.PrismaClientValidationError
+  export import NotFoundError = runtime.NotFoundError
 
   /**
    * Re-export of sql-template-tag
@@ -193,7 +192,7 @@ export namespace Prisma {
   export type DecimalJsLike = runtime.DecimalJsLike
 
   /**
-   * Metrics
+   * Metrics 
    */
   export type Metrics = runtime.Metrics
   export type Metric<T> = runtime.Metric<T>
@@ -211,14 +210,14 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 5.22.0
+   * Query Engine version: 605197351a3c8bdd595af2d2a9bc3025bca48ea2
    */
   export type PrismaVersion = {
     client: string
   }
 
-  export const prismaVersion: PrismaVersion
+  export const prismaVersion: PrismaVersion 
 
   /**
    * Utility Types
@@ -234,15 +233,15 @@ export namespace Prisma {
 
   /**
    * Types of the values used to represent different kinds of `null` values when working with JSON fields.
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   namespace NullTypes {
     /**
     * Type of `Prisma.DbNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class DbNull {
@@ -252,9 +251,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.JsonNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class JsonNull {
@@ -264,9 +263,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.AnyNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class AnyNull {
@@ -277,21 +276,21 @@ export namespace Prisma {
 
   /**
    * Helper for filtering JSON entries that have `null` on the database (empty on the db)
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const DbNull: NullTypes.DbNull
 
   /**
    * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const JsonNull: NullTypes.JsonNull
 
   /**
    * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const AnyNull: NullTypes.AnyNull
@@ -479,7 +478,7 @@ export namespace Prisma {
   type AtLeast<O extends object, K extends string> = NoExpand<
     O extends unknown
     ? | (K extends keyof O ? { [P in K]: O[P] } & O : O)
-      | {[P in keyof O as P extends K ? P : never]-?: O[P]} & O
+      | {[P in keyof O as P extends K ? K : never]-?: O[P]} & O
     : never>;
 
   type _Strict<U, _U = U> = U extends unknown ? U & OptionalFlat<_Record<Exclude<Keys<_U>, keyof U>, never>> : never;
@@ -603,14 +602,11 @@ export namespace Prisma {
     db?: Datasource
   }
 
-  interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
-    returns: Prisma.TypeMap<this['params']['extArgs'], ClientOptions extends { omit: infer OmitOptions } ? OmitOptions : {}>
+  interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.InternalArgs, clientOptions: PrismaClientOptions }, $Utils.Record<string, any>> {
+    returns: Prisma.TypeMap<this['params']['extArgs'], this['params']['clientOptions']>
   }
 
-  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> = {
-    globalOmitOptions: {
-      omit: GlobalOmitOptions
-    }
+  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
       modelProps: "todo"
       txIsolationLevel: Prisma.TransactionIsolationLevel
@@ -667,10 +663,6 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.TodoUpdateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.TodoUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TodoPayload>[]
           }
           upsert: {
             args: Prisma.TodoUpsertArgs<ExtArgs>
@@ -757,25 +749,8 @@ export namespace Prisma {
       timeout?: number
       isolationLevel?: Prisma.TransactionIsolationLevel
     }
-    /**
-     * Global configuration for omitting model fields by default.
-     * 
-     * @example
-     * ```
-     * const prisma = new PrismaClient({
-     *   omit: {
-     *     user: {
-     *       password: true
-     *     }
-     *   }
-     * })
-     * ```
-     */
-    omit?: Prisma.GlobalOmitConfig
   }
-  export type GlobalOmitConfig = {
-    todo?: TodoOmit
-  }
+
 
   /* Types for Logging */
   export type LogLevel = 'info' | 'query' | 'warn' | 'error'
@@ -816,7 +791,6 @@ export namespace Prisma {
     | 'createManyAndReturn'
     | 'update'
     | 'updateMany'
-    | 'updateManyAndReturn'
     | 'upsert'
     | 'delete'
     | 'deleteMany'
@@ -1043,14 +1017,6 @@ export namespace Prisma {
     updatedAt?: boolean
   }, ExtArgs["result"]["todo"]>
 
-  export type TodoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    description?: boolean
-    completed?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["todo"]>
-
   export type TodoSelectScalar = {
     id?: boolean
     description?: boolean
@@ -1059,7 +1025,6 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type TodoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "completed" | "createdAt" | "updatedAt", ExtArgs["result"]["todo"]>
 
   export type $TodoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Todo"
@@ -1076,12 +1041,12 @@ export namespace Prisma {
 
   type TodoGetPayload<S extends boolean | null | undefined | TodoDefaultArgs> = $Result.GetResult<Prisma.$TodoPayload, S>
 
-  type TodoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<TodoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+  type TodoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TodoFindManyArgs, 'select' | 'include' | 'distinct'> & {
       select?: TodoCountAggregateInputType | true
     }
 
-  export interface TodoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  export interface TodoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Todo'], meta: { name: 'Todo' } }
     /**
      * Find zero or one Todo that matches the filter.
@@ -1094,10 +1059,10 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUnique<T extends TodoFindUniqueArgs>(args: SelectSubset<T, TodoFindUniqueArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends TodoFindUniqueArgs>(args: SelectSubset<T, TodoFindUniqueArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Todo that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Todo that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
      * @param {TodoFindUniqueOrThrowArgs} args - Arguments to find a Todo
      * @example
@@ -1108,7 +1073,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUniqueOrThrow<T extends TodoFindUniqueOrThrowArgs>(args: SelectSubset<T, TodoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends TodoFindUniqueOrThrowArgs>(args: SelectSubset<T, TodoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
      * Find the first Todo that matches the filter.
@@ -1123,7 +1088,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirst<T extends TodoFindFirstArgs>(args?: SelectSubset<T, TodoFindFirstArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends TodoFindFirstArgs>(args?: SelectSubset<T, TodoFindFirstArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
      * Find the first Todo that matches the filter or
@@ -1139,7 +1104,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirstOrThrow<T extends TodoFindFirstOrThrowArgs>(args?: SelectSubset<T, TodoFindFirstOrThrowArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends TodoFindFirstOrThrowArgs>(args?: SelectSubset<T, TodoFindFirstOrThrowArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
      * Find zero or more Todos that matches the filter.
@@ -1157,7 +1122,7 @@ export namespace Prisma {
      * const todoWithIdOnly = await prisma.todo.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends TodoFindManyArgs>(args?: SelectSubset<T, TodoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends TodoFindManyArgs>(args?: SelectSubset<T, TodoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findMany">>
 
     /**
      * Create a Todo.
@@ -1171,7 +1136,7 @@ export namespace Prisma {
      * })
      * 
      */
-    create<T extends TodoCreateArgs>(args: SelectSubset<T, TodoCreateArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends TodoCreateArgs>(args: SelectSubset<T, TodoCreateArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
      * Create many Todos.
@@ -1199,7 +1164,7 @@ export namespace Prisma {
      * })
      * 
      * // Create many Todos and only return the `id`
-     * const todoWithIdOnly = await prisma.todo.createManyAndReturn({
+     * const todoWithIdOnly = await prisma.todo.createManyAndReturn({ 
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1209,7 +1174,7 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends TodoCreateManyAndReturnArgs>(args?: SelectSubset<T, TodoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends TodoCreateManyAndReturnArgs>(args?: SelectSubset<T, TodoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Todo.
@@ -1223,7 +1188,7 @@ export namespace Prisma {
      * })
      * 
      */
-    delete<T extends TodoDeleteArgs>(args: SelectSubset<T, TodoDeleteArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends TodoDeleteArgs>(args: SelectSubset<T, TodoDeleteArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
      * Update one Todo.
@@ -1240,7 +1205,7 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends TodoUpdateArgs>(args: SelectSubset<T, TodoUpdateArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends TodoUpdateArgs>(args: SelectSubset<T, TodoUpdateArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
      * Delete zero or more Todos.
@@ -1276,36 +1241,6 @@ export namespace Prisma {
     updateMany<T extends TodoUpdateManyArgs>(args: SelectSubset<T, TodoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Todos and returns the data updated in the database.
-     * @param {TodoUpdateManyAndReturnArgs} args - Arguments to update many Todos.
-     * @example
-     * // Update many Todos
-     * const todo = await prisma.todo.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Todos and only return the `id`
-     * const todoWithIdOnly = await prisma.todo.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends TodoUpdateManyAndReturnArgs>(args: SelectSubset<T, TodoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
      * Create or update one Todo.
      * @param {TodoUpsertArgs} args - Arguments to update or create a Todo.
      * @example
@@ -1322,7 +1257,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    upsert<T extends TodoUpsertArgs>(args: SelectSubset<T, TodoUpsertArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends TodoUpsertArgs>(args: SelectSubset<T, TodoUpsertArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
@@ -1462,7 +1397,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__TodoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__TodoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1491,7 +1426,7 @@ export namespace Prisma {
 
   /**
    * Fields of the Todo model
-   */
+   */ 
   interface TodoFieldRefs {
     readonly id: FieldRef<"Todo", 'String'>
     readonly description: FieldRef<"Todo", 'String'>
@@ -1511,10 +1446,6 @@ export namespace Prisma {
      */
     select?: TodoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * Filter, which Todo to fetch.
      */
     where: TodoWhereUniqueInput
@@ -1529,10 +1460,6 @@ export namespace Prisma {
      */
     select?: TodoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * Filter, which Todo to fetch.
      */
     where: TodoWhereUniqueInput
@@ -1546,10 +1473,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Todo
      */
     select?: TodoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
     /**
      * Filter, which Todo to fetch.
      */
@@ -1595,10 +1518,6 @@ export namespace Prisma {
      */
     select?: TodoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * Filter, which Todo to fetch.
      */
     where?: TodoWhereInput
@@ -1643,10 +1562,6 @@ export namespace Prisma {
      */
     select?: TodoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * Filter, which Todos to fetch.
      */
     where?: TodoWhereInput
@@ -1686,10 +1601,6 @@ export namespace Prisma {
      */
     select?: TodoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * The data needed to create a Todo.
      */
     data: XOR<TodoCreateInput, TodoUncheckedCreateInput>
@@ -1715,10 +1626,6 @@ export namespace Prisma {
      */
     select?: TodoSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * The data used to create many Todos.
      */
     data: TodoCreateManyInput | TodoCreateManyInput[]
@@ -1733,10 +1640,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Todo
      */
     select?: TodoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
     /**
      * The data needed to update a Todo.
      */
@@ -1759,36 +1662,6 @@ export namespace Prisma {
      * Filter which Todos to update
      */
     where?: TodoWhereInput
-    /**
-     * Limit how many Todos to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Todo updateManyAndReturn
-   */
-  export type TodoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Todo
-     */
-    select?: TodoSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
-     * The data used to update Todos.
-     */
-    data: XOR<TodoUpdateManyMutationInput, TodoUncheckedUpdateManyInput>
-    /**
-     * Filter which Todos to update
-     */
-    where?: TodoWhereInput
-    /**
-     * Limit how many Todos to update.
-     */
-    limit?: number
   }
 
   /**
@@ -1799,10 +1672,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Todo
      */
     select?: TodoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
     /**
      * The filter to search for the Todo to update in case it exists.
      */
@@ -1826,10 +1695,6 @@ export namespace Prisma {
      */
     select?: TodoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
-    /**
      * Filter which Todo to delete.
      */
     where: TodoWhereUniqueInput
@@ -1843,10 +1708,6 @@ export namespace Prisma {
      * Filter which Todos to delete
      */
     where?: TodoWhereInput
-    /**
-     * Limit how many Todos to delete.
-     */
-    limit?: number
   }
 
   /**
@@ -1857,10 +1718,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Todo
      */
     select?: TodoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Todo
-     */
-    omit?: TodoOmit<ExtArgs> | null
   }
 
 
@@ -1906,7 +1763,7 @@ export namespace Prisma {
 
 
   /**
-   * Field references
+   * Field references 
    */
 
 
@@ -2258,6 +2115,14 @@ export namespace Prisma {
   }
 
 
+
+  /**
+   * Aliases for legacy arg types
+   */
+    /**
+     * @deprecated Use TodoDefaultArgs instead
+     */
+    export type TodoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TodoDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
