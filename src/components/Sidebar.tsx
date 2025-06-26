@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { CiLogout } from 'react-icons/ci'
 import { SidebarItem } from './SidebarItem'
-import { IoCalendar, IoCheckboxOutline, IoListOutline } from 'react-icons/io5'
+import { IoAmericanFootball, IoCalendar, IoCheckboxOutline, IoListOutline } from 'react-icons/io5'
 
 const menuItem = [
     {
@@ -31,7 +31,7 @@ export const Sidebar = () => {
         
                     <Link href="/dashboard" title="home">
                      
-                        <Image width={150} height={150} src="/img/logo.png" className="w-32" alt="tailus logo" />
+                        <IoAmericanFootball size={25} />
                     </Link>
                 </div>
 
